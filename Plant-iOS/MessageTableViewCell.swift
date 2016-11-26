@@ -13,6 +13,7 @@ class MessageTableViewCell: UITableViewCell {
     @IBOutlet weak var plantImageView: UIImageView!
     @IBOutlet weak var plantNameLabel: UILabel!
     @IBOutlet weak var warningInfoLabel: UILabel!
+    @IBOutlet weak var doneImageView: UIImageView!
     
 
     override func awakeFromNib() {

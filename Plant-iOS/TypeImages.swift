@@ -10,5 +10,6 @@ import Foundation
 import UIKit
 
 var TypeImages = [
-    "flower": UIImage(named: "flower")
+    "flower": UIImage(named: "flower"),
+    "tree": UIImage(named: "tree")
 ]

@@ -36,19 +36,26 @@ class MessagesViewController: UIViewController, UITableViewDelegate, UITableView
         messagesTableView.delegate = self
         messagesTableView.dataSource = self
         
+        timer = Timer.scheduledTimer(timeInterval: 10.0,
+                                              target: self,
+                                              selector: #selector(MessagesViewController.askForNewMessages),
+                                              userInfo: nil,
+                                              repeats: true)
+        
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(createNewMessage(notification:)),
-                                               name: Notification.Name("NewMessage"),
+                                               name: Notification.Name("NewMessages"),
                                                object: nil)
     }
     
     // private functions
     @objc private func createNewMessage(notification: Notification) {
-        let message = Message()
-        message.plantType = notification.userInfo!["plantType"] as! String
-        message.name = notification.userInfo!["name"] as! String
-        message.warning = notification.userInfo!["warning"] as! String
-        messages.append(message)
+        messages = notification.userInfo!["NewMessages"] as! Array + messages
+    }
+    
+    private var timer: Timer!
+    @objc private func askForNewMessages() {
+        Message.getData()
     }
     
 

@@ -9,6 +9,14 @@
 import UIKit
 
 class PlantInfoViewController: UIViewController {
+    
+    @IBOutlet weak var plantCategImage: UIImageView!
+    @IBOutlet weak var plantName: UILabel!
+    @IBOutlet weak var illumination: UILabel!
+    @IBOutlet weak var humidity: UILabel!
+    @IBOutlet weak var temperature: UILabel!
+    @IBOutlet weak var sound: UILabel!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class PlantsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    let url_requestForPlantsList = "http://115.159.1.222:5200/app/plants/all/1"
     // TableView
     @IBOutlet weak var plantsTableView: UITableView!
     
@@ -22,6 +25,9 @@ class PlantsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         plantsTableView.delegate = self
         plantsTableView.dataSource = self
         
+        requestForPlantsList()
+        
+        
     }
     
     // TableView DataSource
@@ -30,13 +36,56 @@ class PlantsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = plantsTableView.dequeueReusableCell(withIdentifier: "plantCell") as? PlantTableViewCell {
+        
+        
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "plantCell", for: indexPath) as? PlantTableViewCell {
+            
+            cell.plantInstance = plants[indexPath.row]
+            cell.setValueWithInstance()
+            
             return cell
         } else {
             return UITableViewCell()
         }
     }
+    
 
+    func requestForPlantsList() {
+        Alamofire.request(url_requestForPlantsList, method: .get ).validate().responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                
+                print(json["plants"])
+                
+                
+                let jsonPlantArray = json["plants"].arrayValue
+                
+                self.plants = self.initPlantArray(json: jsonPlantArray)
+                
+                self.plantsTableView.reloadData()
+                
+            case .failure(let error):
+                print(error)
+                showAlert()
+            }
+        }
+        
+    }
+    
+    func initPlantArray(json:[JSON]) -> [Plant] {
+        var array = [Plant]()
+        
+        for i in 0..<json.count{
+            array.append(Plant.init(json: json[i]))
+        }
+        
+        return array
+    }
 
+}
+public func showAlert(){
+    let alert: UIAlertView = UIAlertView(title: "Networking goes error ", message: "Please check your Network.", delegate: nil, cancelButtonTitle: "OK")
+    alert.show()
 }
 

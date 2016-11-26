@@ -7,8 +7,16 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
+import SwiftChart
 
 class PlantInfoViewController: UIViewController {
+    
+    @IBOutlet weak var plantVariety: UILabel!
+    @IBOutlet weak var plantAge: UILabel!
+    @IBOutlet weak var plantSex: UILabel!
+    @IBOutlet weak var plantMood: UILabel!
     
     @IBOutlet weak var plantCategImage: UIImageView!
     @IBOutlet weak var plantName: UILabel!
@@ -17,11 +25,95 @@ class PlantInfoViewController: UIViewController {
     @IBOutlet weak var temperature: UILabel!
     @IBOutlet weak var sound: UILabel!
     
+    var plantInstance = Plant()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        plantName.text = plantInstance.name
+        plantCategImage.image = UIImage(named: plantInstance.image)
+        illumination.text = plantInstance.infoIllumination
+        humidity.text = plantInstance.infoHumidity
+        temperature.text = plantInstance.infoHumidity
+        sound.text = plantInstance.infoSound
+        
+        plantVariety.text = plantInstance.varieties
+        plantAge.text = String(plantInstance.age)
+        plantSex.text = plantInstance.sex
+        plantMood.text = String(plantInstance.mood)
+        
+        getTheTemperatureChart()
+        getTheHumChart()
+        getTheSunChart()
     }
-
     
+    // 温度
+    func getTheTemperatureChart() {
+        var temps = [Float]()
+        Alamofire.request("http://115.159.1.222:5200/app/plant" + plantInstance.id + "data/tempHum/day/1").validate().responseJSON { (response) in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value).arrayValue
+                print(json)
+                for each in json {
+                    let temp = each["temperature"].floatValue
+                    temps.append(temp)
+                }
+                let chart = Chart()
+                let series = ChartSeries(temps)
+                series.color = ChartColors.greenColor()
+                chart.add(series)
+                
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    // 湿度
+    func getTheHumChart() {
+        var hums = [Float]()
+        Alamofire.request("http://115.159.1.222:5200/app/plant" + plantInstance.id + "data/tempHum/day/1").validate().responseJSON { (response) in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value).arrayValue
+                print(json)
+                for each in json {
+                    let hum = each["humidity"].floatValue / 100
+                    hums.append(hum)
+                }
+                let chart = Chart()
+                let series = ChartSeries(hums)
+                series.color = ChartColors.greenColor()
+                chart.add(series)
+                
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    // 光照
+    func getTheSunChart() {
+        var illuminations = [Float]()
+        Alamofire.request("http://115.159.1.222:5200/app/plant" + plantInstance.id + "data/illumination/day/1").validate().responseJSON { (response) in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value).arrayValue
+                print(json)
+                for each in json {
+                    let illumination = each["illumination"].floatValue
+                    illuminations.append(illumination)
+                }
+                let chart = Chart()
+                let series = ChartSeries(illuminations)
+                series.color = ChartColors.greenColor()
+                chart.add(series)
+                
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
 
 }

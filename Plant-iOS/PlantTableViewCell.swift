@@ -9,6 +9,7 @@
 import UIKit
 
 class PlantTableViewCell: UITableViewCell {
+    
     @IBOutlet weak var plantCategImage: UIImageView!
     @IBOutlet weak var plantName: UILabel!
     @IBOutlet weak var illumination: UILabel!

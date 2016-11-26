@@ -8,4 +8,5 @@ use_frameworks!
 target 'Plant-iOS' do
     pod 'Alamofire', '~> 4.0'
     pod 'SwiftyJSON'
+    pod 'SwiftChart'
 end

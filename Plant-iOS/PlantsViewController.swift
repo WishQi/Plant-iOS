@@ -70,7 +70,6 @@ class PlantsViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 showAlert()
             }
         }
-        
     }
     
     func initPlantArray(json:[JSON]) -> [Plant] {
@@ -81,6 +80,16 @@ class PlantsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         
         return array
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showPlantInfo" {
+            if let plantInfoVC = segue.destination as? PlantInfoViewController {
+                if let cell = sender as? PlantTableViewCell {
+                    plantInfoVC.plantInstance = cell.plantInstance
+                }
+            }
+        }
     }
 
 }

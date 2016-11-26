@@ -16,7 +16,6 @@
 		F857C1441DE97C57004D2EC1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F857C1421DE97C57004D2EC1 /* LaunchScreen.storyboard */; };
 		F857C14C1DE983C8004D2EC1 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F857C14B1DE983C8004D2EC1 /* MessagesViewController.swift */; };
 		F857C14E1DE9846B004D2EC1 /* PlantInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F857C14D1DE9846B004D2EC1 /* PlantInfoViewController.swift */; };
-		F857C1501DE98499004D2EC1 /* MessageInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F857C14F1DE98499004D2EC1 /* MessageInfoViewController.swift */; };
 		F857C1521DE98913004D2EC1 /* Plant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F857C1511DE98913004D2EC1 /* Plant.swift */; };
 		F857C1541DE98A7C004D2EC1 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = F857C1531DE98A7C004D2EC1 /* Message.swift */; };
 		F857C1561DE98BA0004D2EC1 /* PlantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F857C1551DE98BA0004D2EC1 /* PlantTableViewCell.swift */; };
@@ -38,7 +37,6 @@
 		F857C1451DE97C57004D2EC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F857C14B1DE983C8004D2EC1 /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		F857C14D1DE9846B004D2EC1 /* PlantInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlantInfoViewController.swift; sourceTree = "<group>"; };
-		F857C14F1DE98499004D2EC1 /* MessageInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageInfoViewController.swift; sourceTree = "<group>"; };
 		F857C1511DE98913004D2EC1 /* Plant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plant.swift; sourceTree = "<group>"; };
 		F857C1531DE98A7C004D2EC1 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		F857C1551DE98BA0004D2EC1 /* PlantTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlantTableViewCell.swift; sourceTree = "<group>"; };
@@ -123,7 +121,6 @@
 				F857C1381DE97C57004D2EC1 /* PlantsViewController.swift */,
 				F857C14B1DE983C8004D2EC1 /* MessagesViewController.swift */,
 				F857C14D1DE9846B004D2EC1 /* PlantInfoViewController.swift */,
-				F857C14F1DE98499004D2EC1 /* MessageInfoViewController.swift */,
 				F857C15D1DE99100004D2EC1 /* AddPlantViewController.swift */,
 			);
 			name = Controllers;
@@ -280,7 +277,6 @@
 				F857C14C1DE983C8004D2EC1 /* MessagesViewController.swift in Sources */,
 				F857C1541DE98A7C004D2EC1 /* Message.swift in Sources */,
 				F857C15E1DE99100004D2EC1 /* AddPlantViewController.swift in Sources */,
-				F857C1501DE98499004D2EC1 /* MessageInfoViewController.swift in Sources */,
 				F857C13F1DE97C57004D2EC1 /* Plant_iOS.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

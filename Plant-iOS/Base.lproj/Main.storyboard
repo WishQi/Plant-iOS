@@ -31,7 +31,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="CGj-mS-utY" kind="showDetail" identifier="showMessageInfo" id="PUA-UG-WkP"/>
+                                            <segue destination="e09-Jp-WHW" kind="showDetail" identifier="showMessageInfo" id="rBV-oF-map"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -55,24 +55,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7qp-Ww-PLU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1364" y="137.18140929535232"/>
-        </scene>
-        <!--Message Info View Controller-->
-        <scene sceneID="Rem-aH-9xM">
-            <objects>
-                <viewController id="CGj-mS-utY" customClass="MessageInfoViewController" customModule="Plant_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="rlB-ja-h9M"/>
-                        <viewControllerLayoutGuide type="bottom" id="Ouy-Q2-whm"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="X1F-XJ-4CG">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="axB-Pn-oHo" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2246" y="137"/>
         </scene>
         <!--Plants View Controller-->
         <scene sceneID="PPH-X2-BTm">
@@ -138,7 +120,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r0h-8h-blO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2246" y="-1177"/>
+            <point key="canvasLocation" x="2246" y="-850"/>
         </scene>
         <!--Plant Info View Controller-->
         <scene sceneID="852-Sx-Emt">
@@ -156,7 +138,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pWQ-Pn-c8J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2247" y="-518"/>
+            <point key="canvasLocation" x="2246" y="-179"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="3I3-5k-20g">
@@ -215,4 +197,7 @@
             <point key="canvasLocation" x="424.80000000000001" y="137.18140929535232"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="rBV-oF-map"/>
+    </inferredMetricsTieBreakers>
 </document>

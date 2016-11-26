@@ -57,7 +57,7 @@
                                             <outlet property="plantImageView" destination="uPh-jh-W1I" id="AZK-Bb-9kF"/>
                                             <outlet property="plantNameLabel" destination="avS-GE-sgV" id="lqe-nP-dFJ"/>
                                             <outlet property="warningInfoLabel" destination="ogW-E4-kJK" id="8bi-qu-HKe"/>
-                                            <segue destination="e09-Jp-WHW" kind="showDetail" identifier="showMessageInfo" id="rBV-oF-map"/>
+                                            <segue destination="e09-Jp-WHW" kind="show" identifier="showMessageInfo" id="1uG-hx-vte"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -150,7 +150,7 @@
                                             <outlet property="plantName" destination="cn6-ES-c7M" id="rpS-JI-cxH"/>
                                             <outlet property="sound" destination="NwI-s6-llY" id="rR9-9x-MMC"/>
                                             <outlet property="temperature" destination="yPC-LG-4s6" id="xQk-xm-RdJ"/>
-                                            <segue destination="e09-Jp-WHW" kind="showDetail" identifier="showPlantInfo" id="OXd-2g-iGn"/>
+                                            <segue destination="e09-Jp-WHW" kind="show" identifier="showPlantInfo" id="Rmj-vs-oFH"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -167,7 +167,7 @@
                     <navigationItem key="navigationItem" id="9ih-gb-joH">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ilw-RX-9Jj">
                             <connections>
-                                <segue destination="7bp-Lt-VgN" kind="show" identifier="addPlant" action="showDetailViewController:sender:" id="E18-SN-nPR"/>
+                                <segue destination="7bp-Lt-VgN" kind="show" identifier="createPlant" id="ACc-BY-57k"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -192,10 +192,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="gKe-Un-XR0"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r0h-8h-blO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2246" y="-850"/>
+            <point key="canvasLocation" x="3184.8000000000002" y="-850.52473763118451"/>
         </scene>
         <!--Plant Info View Controller-->
         <scene sceneID="852-Sx-Emt">
@@ -273,6 +276,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="rBV-oF-map"/>
+        <segue reference="1uG-hx-vte"/>
     </inferredMetricsTieBreakers>
 </document>

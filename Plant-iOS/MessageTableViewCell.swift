@@ -9,6 +9,11 @@
 import UIKit
 
 class MessageTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var plantImageView: UIImageView!
+    @IBOutlet weak var plantNameLabel: UILabel!
+    @IBOutlet weak var warningInfoLabel: UILabel!
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		78C9C88FB55DD9185EF4C712 /* Pods_Plant_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9654C3374B400D35799AA44 /* Pods_Plant_iOS.framework */; };
 		F857C1371DE97C57004D2EC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F857C1361DE97C57004D2EC1 /* AppDelegate.swift */; };
 		F857C1391DE97C57004D2EC1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F857C1381DE97C57004D2EC1 /* ViewController.swift */; };
 		F857C13C1DE97C57004D2EC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F857C13A1DE97C57004D2EC1 /* Main.storyboard */; };
@@ -16,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4800023A0650CDD0E0256798 /* Pods-Plant-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Plant-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Plant-iOS/Pods-Plant-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		6BA601CA5F22303BF138F173 /* Pods-Plant-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Plant-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Plant-iOS/Pods-Plant-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		E9654C3374B400D35799AA44 /* Pods_Plant_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Plant_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F857C1331DE97C57004D2EC1 /* Plant-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Plant-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F857C1361DE97C57004D2EC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F857C1381DE97C57004D2EC1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -31,17 +35,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78C9C88FB55DD9185EF4C712 /* Pods_Plant_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1698DF48CF73E84DB9FF84FE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4800023A0650CDD0E0256798 /* Pods-Plant-iOS.debug.xcconfig */,
+				6BA601CA5F22303BF138F173 /* Pods-Plant-iOS.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		3208387907EA074BC9246ED0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E9654C3374B400D35799AA44 /* Pods_Plant_iOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F857C12A1DE97C57004D2EC1 = {
 			isa = PBXGroup;
 			children = (
 				F857C1351DE97C57004D2EC1 /* Plant-iOS */,
 				F857C1341DE97C57004D2EC1 /* Products */,
+				1698DF48CF73E84DB9FF84FE /* Pods */,
+				3208387907EA074BC9246ED0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,9 +98,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F857C1481DE97C57004D2EC1 /* Build configuration list for PBXNativeTarget "Plant-iOS" */;
 			buildPhases = (
+				B5A924B386A4F12C09AA9D21 /* [CP] Check Pods Manifest.lock */,
 				F857C12F1DE97C57004D2EC1 /* Sources */,
 				F857C1301DE97C57004D2EC1 /* Frameworks */,
 				F857C1311DE97C57004D2EC1 /* Resources */,
+				8F9B46BCE4B87EA31267E156 /* [CP] Embed Pods Frameworks */,
+				84505CD91ADE303DA63A9D00 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -134,6 +161,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		84505CD91ADE303DA63A9D00 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Plant-iOS/Pods-Plant-iOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8F9B46BCE4B87EA31267E156 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Plant-iOS/Pods-Plant-iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B5A924B386A4F12C09AA9D21 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F857C12F1DE97C57004D2EC1 /* Sources */ = {
@@ -263,6 +338,7 @@
 		};
 		F857C1491DE97C57004D2EC1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4800023A0650CDD0E0256798 /* Pods-Plant-iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 9VPLXE5668;
@@ -276,6 +352,7 @@
 		};
 		F857C14A1DE97C57004D2EC1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6BA601CA5F22303BF138F173 /* Pods-Plant-iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 9VPLXE5668;

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		78C9C88FB55DD9185EF4C712 /* Pods_Plant_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9654C3374B400D35799AA44 /* Pods_Plant_iOS.framework */; };
+		F82846531DE9B7B80099E3EC /* TypeImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82846521DE9B7B80099E3EC /* TypeImages.swift */; };
 		F857C1371DE97C57004D2EC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F857C1361DE97C57004D2EC1 /* AppDelegate.swift */; };
 		F857C1391DE97C57004D2EC1 /* PlantsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F857C1381DE97C57004D2EC1 /* PlantsViewController.swift */; };
 		F857C13C1DE97C57004D2EC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F857C13A1DE97C57004D2EC1 /* Main.storyboard */; };
@@ -27,6 +28,7 @@
 		4800023A0650CDD0E0256798 /* Pods-Plant-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Plant-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Plant-iOS/Pods-Plant-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		6BA601CA5F22303BF138F173 /* Pods-Plant-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Plant-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Plant-iOS/Pods-Plant-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		E9654C3374B400D35799AA44 /* Pods_Plant_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Plant_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F82846521DE9B7B80099E3EC /* TypeImages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeImages.swift; sourceTree = "<group>"; };
 		F857C1331DE97C57004D2EC1 /* Plant-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Plant-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F857C1361DE97C57004D2EC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F857C1381DE97C57004D2EC1 /* PlantsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantsViewController.swift; sourceTree = "<group>"; };
@@ -94,9 +96,9 @@
 		F857C1351DE97C57004D2EC1 /* Plant-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				F857C13A1DE97C57004D2EC1 /* Main.storyboard */,
 				F857C1591DE98BE2004D2EC1 /* Supporting Files */,
 				F857C15A1DE98C10004D2EC1 /* Controllers */,
-				F857C13A1DE97C57004D2EC1 /* Main.storyboard */,
 				F857C15B1DE98C21004D2EC1 /* Models */,
 				F857C15C1DE98C33004D2EC1 /* ViewCells */,
 			);
@@ -131,6 +133,7 @@
 			children = (
 				F857C1511DE98913004D2EC1 /* Plant.swift */,
 				F857C1531DE98A7C004D2EC1 /* Message.swift */,
+				F82846521DE9B7B80099E3EC /* TypeImages.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				F857C14E1DE9846B004D2EC1 /* PlantInfoViewController.swift in Sources */,
 				F857C1391DE97C57004D2EC1 /* PlantsViewController.swift in Sources */,
 				F857C1521DE98913004D2EC1 /* Plant.swift in Sources */,
+				F82846531DE9B7B80099E3EC /* TypeImages.swift in Sources */,
 				F857C1581DE98BBA004D2EC1 /* MessageTableViewCell.swift in Sources */,
 				F857C1371DE97C57004D2EC1 /* AppDelegate.swift in Sources */,
 				F857C1561DE98BA0004D2EC1 /* PlantTableViewCell.swift in Sources */,

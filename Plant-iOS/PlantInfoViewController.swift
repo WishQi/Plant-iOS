@@ -25,6 +25,11 @@ class PlantInfoViewController: UIViewController {
     @IBOutlet weak var temperature: UILabel!
     @IBOutlet weak var sound: UILabel!
     
+    @IBOutlet weak var temChart: Chart!
+    @IBOutlet weak var humChart: Chart!
+    @IBOutlet weak var illuChart: Chart!
+    
+    
     var plantInstance = Plant()
 
     override func viewDidLoad() {
@@ -59,10 +64,10 @@ class PlantInfoViewController: UIViewController {
                     let temp = each["temperature"].floatValue
                     temps.append(temp)
                 }
-                let chart = Chart()
+                self.temChart = Chart()
                 let series = ChartSeries(temps)
                 series.color = ChartColors.greenColor()
-                chart.add(series)
+                self.temChart.add(series)
                 
             case .failure(let error):
                 print(error)
@@ -82,10 +87,10 @@ class PlantInfoViewController: UIViewController {
                     let hum = each["humidity"].floatValue / 100
                     hums.append(hum)
                 }
-                let chart = Chart()
+                self.humChart = Chart()
                 let series = ChartSeries(hums)
                 series.color = ChartColors.greenColor()
-                chart.add(series)
+                self.humChart.add(series)
                 
             case .failure(let error):
                 print(error)
@@ -105,10 +110,10 @@ class PlantInfoViewController: UIViewController {
                     let illumination = each["illumination"].floatValue
                     illuminations.append(illumination)
                 }
-                let chart = Chart()
+                self.illuChart = Chart()
                 let series = ChartSeries(illuminations)
                 series.color = ChartColors.greenColor()
-                chart.add(series)
+                self.illuChart.add(series)
                 
             case .failure(let error):
                 print(error)

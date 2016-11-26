@@ -61,7 +61,7 @@ class PlantsViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 
                 let jsonPlantArray = json["plants"].arrayValue
                 
-                self.plants = self.initPlantArray(json: jsonPlantArray)
+                self.plants = self.initPlantArray(jsonPlantArray)
                 
                 self.plantsTableView.reloadData()
                 
@@ -72,7 +72,7 @@ class PlantsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
-    func initPlantArray(json:[JSON]) -> [Plant] {
+    func initPlantArray(_ json:[JSON]) -> [Plant] {
         var array = [Plant]()
         
         for i in 0..<json.count{

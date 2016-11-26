@@ -906,11 +906,11 @@ extension JSON {
         }
     }
     
-    public var int: Int?
+    public var int: Int32?
     {
         get
         {
-            return self.number?.intValue
+            return self.number?.int32Value
         }
         set
         {

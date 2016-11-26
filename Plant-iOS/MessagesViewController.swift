@@ -54,7 +54,7 @@ class MessagesViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     private var timer: Timer!
-    @objc private func askForNewMessages() {
+    @objc fileprivate func askForNewMessages() {
         Message.getData()
     }
     

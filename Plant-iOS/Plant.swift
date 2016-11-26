@@ -11,6 +11,7 @@ import SwiftyJSON
 
 class Plant {
     
+    var id = ""
     var name: String = ""
     var varieties: String = ""
     var image: String = ""

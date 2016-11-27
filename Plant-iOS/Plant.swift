@@ -28,7 +28,11 @@ class Plant {
     init(json:JSON) {
         //还没完成哦！！！！
         self.name = String(describing:json["name"])
-        self.varieties = String(describing:json["varieties"])
+        self.varieties = String(describing:json["varieties"]["name"])
+        self.age = Float(json["age"].doubleValue)
+        self.sex = json["sex"].string!
+        self.mood = json["mood"].intValue
+        
     }
     
     init() {

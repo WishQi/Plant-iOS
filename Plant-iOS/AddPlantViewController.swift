@@ -21,14 +21,14 @@ class AddPlantViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     @IBAction func doneCreate(_ sender: AnyObject) {
         postPlantsInfo()
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
 
     
 
     let url_requestForRuffId = "http://115.159.1.222:5200/app/ruffs/all"
-    let url_requestForVarieties = "wait for song"
-    let url_post = "wait for song"
+    let url_requestForVarieties = "http://115.159.1.222:5200/app/varieties/all"
+    let url_post = "http://115.159.1.222:5200/app/plants/plant"
     var ruffIdArray = [JSON]()
     var sexArray = ["male","female"]
     var varietiesArray = [JSON]()
@@ -63,11 +63,11 @@ class AddPlantViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         switch component {
         case 0:
-            return ruffIdArray[row].string
+            return ruffIdArray[row]["name"].string
         case 1:
             return sexArray[row]
         case 2:
-            return varietiesArray[row].string
+            return varietiesArray[row]["name"].string
         default:
             return ""
         }
@@ -109,21 +109,32 @@ class AddPlantViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     }
     
     func postPlantsInfo() {
-        let ruffIdSelected = ruffIdArray[pickerView.selectedRow(inComponent: 0)]
+        let ruffIdSelected = ruffIdArray[pickerView.selectedRow(inComponent: 0)]["name"]
         let sexSelected = sexArray[pickerView.selectedRow(inComponent: 1)]
-        let varietySelected = varietiesArray[pickerView.selectedRow(inComponent: 2)]
+        let varietySelected = varietiesArray[pickerView.selectedRow(inComponent: 2)]["_id"]
         
         let parameters: Parameters = [
-            "varieties": varietySelected,
-            "ruffName": ruffIdSelected,
-            "sex": sexSelected,
-            "image": "http://img5.imgtn.bdimg.com/it/u=3732793912,1940191151&fm=21&gp=0.jpg",
-            "age": ageTextField.text!,
-            "name": nameTextField.text!
+            "varieties": "\(varietySelected)",
+            "ruffName": "\(ruffIdSelected)",
+            "sex": "\(sexSelected)",
+            "img": "http://img5.imgtn.bdimg.com/it/u=3732793912,1940191151&fm=21&gp=0.jpg",
+            "age": Double(ageTextField.text!)!,
+            "name": "\(nameTextField.text!)"
             
         ]
         
-        Alamofire.request(url_post, parameters: parameters)
+        Alamofire.request(url_post, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                print(json)
+             
+            case .failure(let error):
+                print(error)
+                showAlert()
+            }
+        }
+
         
     }
 

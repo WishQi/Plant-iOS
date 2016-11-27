@@ -29,6 +29,9 @@ class PlantsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         
     }
+    override func viewWillAppear(_ animated: Bool) {
+        requestForPlantsList()
+    }
     
     // TableView DataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -42,6 +45,8 @@ class PlantsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
             cell.plantInstance = plants[indexPath.row]
             cell.setValueWithInstance()
+            
+            
             
             return cell
         } else {
@@ -87,12 +92,14 @@ class PlantsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             if let plantInfoVC = segue.destination as? PlantInfoViewController {
                 if let cell = sender as? PlantTableViewCell {
                     plantInfoVC.plantInstance = cell.plantInstance
+                    
                 }
             }
         }
     }
 
 }
+
 public func showAlert(){
     let alert: UIAlertView = UIAlertView(title: "Networking goes error ", message: "Please check your Network.", delegate: nil, cancelButtonTitle: "OK")
     alert.show()

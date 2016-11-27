@@ -44,9 +44,35 @@ class PlantsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if let cell = tableView.dequeueReusableCell(withIdentifier: "plantCell", for: indexPath) as? PlantTableViewCell {
             
             cell.plantInstance = plants[indexPath.row]
+                        let url = "http://115.159.1.222:5200/app/plants/plant/" + cell.plantInstance.id
+            Alamofire.request(url, method: .get ).validate().responseJSON { response in
+                switch response.result {
+                case .success(let value):
+                    let json = JSON(value)
+                    print(url)
+                    print(String(describing:json["params"].arrayValue[0]))
+                    
+                    cell.plantInstance.infoIllumination = String(describing:json["params"].arrayValue[0])
+                    cell.illumination.text = String(describing:json["params"].arrayValue[0])
+                    cell.plantInstance.infoTemperature = String(describing:json["params"].arrayValue[1].arrayValue[0])
+                    cell.temperature.text = String(describing:json["params"].arrayValue[1].arrayValue[0])
+                    
+                    cell.plantInstance.infoHumidity = String(describing:json["params"].arrayValue[1].arrayValue[1])
+                    cell.humidity.text = String(describing:json["params"].arrayValue[1].arrayValue[1])
+
+                    cell.plantInstance.infoSound = String(describing:json["params"].arrayValue[2])
+                    cell.sound.text = String(describing:json["params"].arrayValue[2])
+                    
+                    
+                    
+                case .failure(let error):
+                    print(error)
+                    showAlert()
+                }
+            }
             cell.setValueWithInstance()
             
-            
+
             
             return cell
         } else {

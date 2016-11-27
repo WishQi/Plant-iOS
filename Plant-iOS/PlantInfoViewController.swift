@@ -36,7 +36,7 @@ class PlantInfoViewController: UIViewController {
         super.viewDidLoad()
         
         plantName.text = plantInstance.name
-        plantCategImage.image = UIImage(named: plantInstance.image)
+//        plantCategImage.image = UIImage(named: plantInstance.image)
         illumination.text = plantInstance.infoIllumination
         humidity.text = plantInstance.infoHumidity
         temperature.text = plantInstance.infoHumidity
@@ -73,7 +73,7 @@ class PlantInfoViewController: UIViewController {
                 }
                 print(temps)
                 let series = ChartSeries(temps)
-                series.color = ChartColors.greenColor()
+                series.color = ChartColors.orangeColor()
                 self.temChart.add(series)
                 self.temChart.setNeedsDisplay()
             case .failure(let error):
@@ -100,7 +100,7 @@ class PlantInfoViewController: UIViewController {
                     }
                 }
                 let series = ChartSeries(hums)
-                series.color = ChartColors.greenColor()
+                series.color = ChartColors.blueColor()
                 self.humChart.add(series)
                 self.humChart.setNeedsDisplay()
                 
@@ -129,7 +129,7 @@ class PlantInfoViewController: UIViewController {
                 }
                 print(illuminations)
                 let series = ChartSeries(illuminations)
-                series.color = ChartColors.greenColor()
+                series.color = ChartColors.yellowColor()
                 self.illuChart.add(series)
                 self.illuChart.setNeedsDisplay()
                 

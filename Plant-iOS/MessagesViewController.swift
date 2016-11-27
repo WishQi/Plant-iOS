@@ -70,7 +70,7 @@ class MessagesViewController: UIViewController, UITableViewDelegate, UITableView
             if let image = TypeImages[message.plantType] {
                 cell.plantImageView.image = image
             } else {
-                cell.plantImageView.image = TypeImages["default.png"]!
+                cell.plantImageView.image = TypeImages["default"]!
             }
             cell.plantNameLabel.text = message.name
             cell.warningInfoLabel.text = message.warning

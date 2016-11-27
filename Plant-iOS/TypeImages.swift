@@ -11,5 +11,6 @@ import UIKit
 
 var TypeImages = [
     "flower": UIImage(named: "flower"),
-    "tree": UIImage(named: "tree")
+    "tree": UIImage(named: "tree"),
+    "default": UIImage(named: "default")
 ]

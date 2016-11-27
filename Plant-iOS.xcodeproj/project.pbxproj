@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		78C9C88FB55DD9185EF4C712 /* Pods_Plant_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9654C3374B400D35799AA44 /* Pods_Plant_iOS.framework */; };
+		AF1EA7611DEA6629005532A3 /* CustomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1EA7601DEA6629005532A3 /* CustomBar.swift */; };
 		F82846531DE9B7B80099E3EC /* TypeImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82846521DE9B7B80099E3EC /* TypeImages.swift */; };
 		F857C1371DE97C57004D2EC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F857C1361DE97C57004D2EC1 /* AppDelegate.swift */; };
 		F857C1391DE97C57004D2EC1 /* PlantsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F857C1381DE97C57004D2EC1 /* PlantsViewController.swift */; };
@@ -27,6 +28,7 @@
 /* Begin PBXFileReference section */
 		4800023A0650CDD0E0256798 /* Pods-Plant-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Plant-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Plant-iOS/Pods-Plant-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		6BA601CA5F22303BF138F173 /* Pods-Plant-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Plant-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Plant-iOS/Pods-Plant-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		AF1EA7601DEA6629005532A3 /* CustomBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomBar.swift; sourceTree = "<group>"; };
 		E9654C3374B400D35799AA44 /* Pods_Plant_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Plant_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F82846521DE9B7B80099E3EC /* TypeImages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeImages.swift; sourceTree = "<group>"; };
 		F857C1331DE97C57004D2EC1 /* Plant-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Plant-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,6 +126,7 @@
 				F857C14B1DE983C8004D2EC1 /* MessagesViewController.swift */,
 				F857C14D1DE9846B004D2EC1 /* PlantInfoViewController.swift */,
 				F857C15D1DE99100004D2EC1 /* AddPlantViewController.swift */,
+				AF1EA7601DEA6629005532A3 /* CustomBar.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				F82846531DE9B7B80099E3EC /* TypeImages.swift in Sources */,
 				F857C1581DE98BBA004D2EC1 /* MessageTableViewCell.swift in Sources */,
 				F857C1371DE97C57004D2EC1 /* AppDelegate.swift in Sources */,
+				AF1EA7611DEA6629005532A3 /* CustomBar.swift in Sources */,
 				F857C1561DE98BA0004D2EC1 /* PlantTableViewCell.swift in Sources */,
 				F857C14C1DE983C8004D2EC1 /* MessagesViewController.swift in Sources */,
 				F857C1541DE98A7C004D2EC1 /* Message.swift in Sources */,

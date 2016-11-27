@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "flower.jpeg",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "sunflower.png",
       "scale" : "2x"
     },
     {

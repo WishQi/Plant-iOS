@@ -11,7 +11,7 @@ import Alamofire
 import SwiftyJSON
 import SwiftChart
 
-class PlantInfoViewController: UIViewController {
+class PlantInfoViewController: UIViewController, ChartDelegate {
     
     @IBOutlet weak var plantVariety: UILabel!
     @IBOutlet weak var plantAge: UILabel!
@@ -47,6 +47,8 @@ class PlantInfoViewController: UIViewController {
         plantSex.text = plantInstance.sex
         plantMood.text = String(plantInstance.mood)
         
+        temChart.delegate = self
+        
         getTheTemperatureChart()
         getTheHumChart()
         getTheSunChart()
@@ -55,20 +57,25 @@ class PlantInfoViewController: UIViewController {
     // 温度
     func getTheTemperatureChart() {
         var temps = [Float]()
-        Alamofire.request("http://115.159.1.222:5200/app/plant" + plantInstance.id + "data/tempHum/day/1").validate().responseJSON { (response) in
+        Alamofire.request("http://115.159.1.222:5200/app/plant/" + plantInstance.id + "/data/tempHum/day/1").validate().responseJSON { (response) in
             switch response.result {
             case .success(let value):
-                let json = JSON(value).arrayValue
+                let json = JSON(value)["data"].arrayValue
                 print(json)
+                var count = 0
                 for each in json {
                     let temp = each["temperature"].floatValue
                     temps.append(temp)
+                    count = count + 1
+                    if count > 10 {
+                        break
+                    }
                 }
-                self.temChart = Chart()
+                print(temps)
                 let series = ChartSeries(temps)
                 series.color = ChartColors.greenColor()
                 self.temChart.add(series)
-                
+                self.temChart.setNeedsDisplay()
             case .failure(let error):
                 print(error)
             }
@@ -78,19 +85,24 @@ class PlantInfoViewController: UIViewController {
     // 湿度
     func getTheHumChart() {
         var hums = [Float]()
-        Alamofire.request("http://115.159.1.222:5200/app/plant" + plantInstance.id + "data/tempHum/day/1").validate().responseJSON { (response) in
+        Alamofire.request("http://115.159.1.222:5200/app/plant/" + plantInstance.id + "/data/tempHum/day/1").validate().responseJSON { (response) in
             switch response.result {
             case .success(let value):
-                let json = JSON(value).arrayValue
+                let json = JSON(value)["data"].arrayValue
                 print(json)
+                var count = 0
                 for each in json {
                     let hum = each["humidity"].floatValue / 100
                     hums.append(hum)
+                    count += 1
+                    if count > 10 {
+                        break
+                    }
                 }
-                self.humChart = Chart()
                 let series = ChartSeries(hums)
                 series.color = ChartColors.greenColor()
                 self.humChart.add(series)
+                self.humChart.setNeedsDisplay()
                 
             case .failure(let error):
                 print(error)
@@ -101,24 +113,52 @@ class PlantInfoViewController: UIViewController {
     // 光照
     func getTheSunChart() {
         var illuminations = [Float]()
-        Alamofire.request("http://115.159.1.222:5200/app/plant" + plantInstance.id + "data/illumination/day/1").validate().responseJSON { (response) in
+        Alamofire.request("http://115.159.1.222:5200/app/plant/" + plantInstance.id + "/data/illumination/day/1").validate().responseJSON { (response) in
             switch response.result {
             case .success(let value):
-                let json = JSON(value).arrayValue
+                let json = JSON(value)["data"].arrayValue
                 print(json)
+                var count = 0
                 for each in json {
                     let illumination = each["illumination"].floatValue
                     illuminations.append(illumination)
+                    count = count + 1
+                    if count > 10 {
+                        break
+                    }
                 }
-                self.illuChart = Chart()
+                print(illuminations)
                 let series = ChartSeries(illuminations)
                 series.color = ChartColors.greenColor()
                 self.illuChart.add(series)
+                self.illuChart.setNeedsDisplay()
                 
             case .failure(let error):
                 print(error)
             }
         }
+    }
+    
+    func didTouchChart(_ chart: Chart, indexes: Array<Int?>, x: Float, left: CGFloat) {
+        for (seriesIndex, dataIndex) in indexes.enumerated() {
+            if let value = chart.valueForSeries(seriesIndex, atIndex: dataIndex) {
+                print("Touched series: \(seriesIndex): data index: \(dataIndex!); series value: \(value); x-axis value: \(x) (from left: \(left))")
+            }
+        }
+    }
+    
+    func didFinishTouchingChart(_ chart: Chart) {
+        
+    }
+    
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        
+        super.viewWillTransition(to: size, with: coordinator)
+        
+        // Redraw chart on rotation
+        temChart.setNeedsDisplay()
+        
     }
 
 }

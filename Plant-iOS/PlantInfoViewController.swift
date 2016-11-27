@@ -11,7 +11,7 @@ import Alamofire
 import SwiftyJSON
 import SwiftChart
 
-class PlantInfoViewController: UIViewController, ChartDelegate {
+class PlantInfoViewController: UIViewController {
     
     @IBOutlet weak var plantVariety: UILabel!
     @IBOutlet weak var plantAge: UILabel!
@@ -47,7 +47,7 @@ class PlantInfoViewController: UIViewController, ChartDelegate {
         plantSex.text = plantInstance.sex
         plantMood.text = String(plantInstance.mood)
         
-        temChart.delegate = self
+        
         
         getTheTemperatureChart()
         getTheHumChart()
@@ -139,26 +139,5 @@ class PlantInfoViewController: UIViewController, ChartDelegate {
         }
     }
     
-    func didTouchChart(_ chart: Chart, indexes: Array<Int?>, x: Float, left: CGFloat) {
-        for (seriesIndex, dataIndex) in indexes.enumerated() {
-            if let value = chart.valueForSeries(seriesIndex, atIndex: dataIndex) {
-                print("Touched series: \(seriesIndex): data index: \(dataIndex!); series value: \(value); x-axis value: \(x) (from left: \(left))")
-            }
-        }
-    }
     
-    func didFinishTouchingChart(_ chart: Chart) {
-        
-    }
-    
-    
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        
-        super.viewWillTransition(to: size, with: coordinator)
-        
-        // Redraw chart on rotation
-        temChart.setNeedsDisplay()
-        
-    }
-
 }
